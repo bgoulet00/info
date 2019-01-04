@@ -7,7 +7,7 @@
       ios_facts:
         gather_subset: all
         
-    - name: output to file
-      copy:
-       content: "{{ansible_net_model}}"
-       dest: "./system-version.txt"
+    # - name: output to file
+      # copy:
+       # content: "{{ansible_net_model}}"
+       # dest: "./system-version.txt"
