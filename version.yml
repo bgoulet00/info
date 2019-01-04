@@ -3,11 +3,17 @@
   hosts: all
   
   tasks:
+  - name: run multiple commands on remote nodes
+    ios_command:
+    - commands: show version
+  
+  tasks:
     - name: collect model and version
       ios_facts:
         gather_subset: all
+        register: facts_output
         
     # - name: output to file
       # copy:
-       # content: "{{ansible_net_model}}"
+       # content: "{{ facts_output.ansible_facts.ansible_net_hostname, facts_output.ansible_facts.ansible_net_version , facts_output.ansible_facts.ansible_net_model }}"
        # dest: "./system-version.txt"
