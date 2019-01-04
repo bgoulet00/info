@@ -3,14 +3,14 @@
   hosts: all
   
   tasks:
-    -name: run multiple commands on remote nodes
-      ios_command:
-      - commands: show version
+  - name: run multiple commands on remote nodes
+    ios_command:
+    - commands: show version
   
-    -name: collect model and version
-      ios_facts:
-        gather_subset: all
-        register: facts_output
+   - name: collect model and version
+     ios_facts:
+       gather_subset: all
+       register: facts_output
         
     # - name: output to file
       # copy:
