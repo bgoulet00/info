@@ -1,0 +1,13 @@
+---
+- name: gahter device model and ios version
+  hosts: all
+  
+  tasks:
+    - name: collect model and version
+      ios_facts:
+        gather_subset: all
+        
+    - name: output to file
+      copy:
+       content: "{{ansible_net_model}}"
+       dest: "./system-version.txt"
